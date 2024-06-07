@@ -7,7 +7,7 @@ El repositorio contiene los siguientes elementos:
 
 Para la primera Se desea conocer el cambio de temperatura en el interior de una placa plana cuadrada, con un tamaño de 1m, para puntos en su interior cada 1 cm. La expresión del comportamiento de la temperatura para cualquier punto en el interior se indica en la siguiente ecuación:
 
-T_{i,j}^k=\frac{T_{i+1,j}^{k-1}+T_{i-1,j}^{k-1}+T_{i,j+1}^{k-1}+T_{i,j-1}^{k-1}}{4}
+![f1](https://github.com/JoseTor101/simulations_temp_and_crank_mech/blob/master/imgs/f1.jpg)
 
 Encuentre:
 
@@ -21,21 +21,21 @@ ubicación aproximada.
 para cada incremento del tiempo.
 
 Para la solución planteada, encontramos que la manera más sencilla de implementar la solución era modificando la manera en que planteábamos la ecuación, de:
-T_{i,j}^k=\frac{T_{i+1,j}^{k-1}+T_{i-1,j}^{k-1}+T_{i,j+1}^{k-1}+T_{i,j-1}^{k-1}}{4}
+![f1](https://github.com/JoseTor101/simulations_temp_and_crank_mech/blob/master/imgs/f1.jpg)
 
 A la siguiente:
-T_{i,j}^{k+1}=\frac{T_{i+1,j}^k+T_{i-1,j}^k+T_{i,j+1}^k+T_{i,j-1}^k}{4}
+![f2](https://github.com/JoseTor101/simulations_temp_and_crank_mech/blob/master/imgs/f2.jpg)
 
 
 La velocidad del incremento de temperatura para el punto medio de la placa la obtenemos a partir de la siguiente fórmula:
 
-\frac{\partial T}{\partial t}=\frac{T\left[\frac{\left(Nx,Ny\right)}{2},tf\right]-T\left[\frac{\left(Nx,Ny\right)}{2},t0\right]}{Nt\cdot d t}
+![f3](https://github.com/JoseTor101/simulations_temp_and_crank_mech/blob/master/imgs/f3.jpg)
 
 **RESULTADOS**
 
-![Gráfica 1a](img/placa_out_2d.png)
-![Gráfica 2a](img/placa_out_3d.png)
-![Gráfica 3a](img/placa_out_consola.jpg)
+![Gráfica 1a](https://github.com/JoseTor101/simulations_temp_and_crank_mech/blob/master/imgs/placa_out_consola.jpg)
+![Gráfica 2a](https://github.com/JoseTor101/simulations_temp_and_crank_mech/blob/master/imgs/placa_out_2d.png)
+![Gráfica 3a](https://github.com/JoseTor101/simulations_temp_and_crank_mech/blob/master/imgs/placa_out_3d.png)
 
 ## Engine_crank.py
 
@@ -46,59 +46,69 @@ Las fórmulas proporcionadas para la posición, velocidad y aceleración del pis
 **FÓRMULAS UTILIZADAS:**
 
 Donde **r_motor** = Longitud del cigüeñal
+
 **B_motor** = longitud de la Biela
 
 **Posición del Pistón:**
-y=r_{\mathrm{motor}}\cos{\left(\theta\right)}+\sqrt{b_{\mathrm{motor}}^2-r_{\mathrm{motor}}^2\sin^2{\left(\theta\right)}}
+
+![f4](https://github.com/JoseTor101/simulations_temp_and_crank_mech/blob/master/imgs/f4.jpg)
 
 **Velocidad del Pistón:**
-v=r_{\mathrm{motor}}\omega\left(\sin{\left(\theta\right)}+\frac{r_{\mathrm{motor}}}{b_{\mathrm{motor}}}\sin{\left(2\theta\right)}\right)
+
+![f5](https://github.com/JoseTor101/simulations_temp_and_crank_mech/blob/master/imgs/f5.jpg)
 
 **Aceleración del Pistón:**
-a=\left(r_{\mathrm{motor}}\omega^2\right)\left(\cos{\left(\theta\right)}+\frac{r_{\mathrm{motor}}}{b_{\mathrm{motor}}}\cos{\left(2\theta\right)}\right)
 
+![f6](https://github.com/JoseTor101/simulations_temp_and_crank_mech/blob/master/imgs/f6.jpg)
 
-**Volumen de la cámara de combustión**
-V=\frac{\pi}{4}d_{\mathrm{motor}}^2\left(r_{\mathrm{motor}}\left(1-\cos{\left(\theta\right)}\right)\cdot\left(\sin{\left(\theta\right)}+\frac{b_{\mathrm{motor}}}{r_{\mathrm{motor}}}\sqrt{1-\left(\frac{e-r_{\mathrm{motor}}\cos{\left(\theta\right)}}{b_{\mathrm{motor}}}\right)^2}\right)\cdot\left(1-\frac{r_{\mathrm{motor}}\sin{\left(\theta\right)}}{b_{\mathrm{motor}}+r_{\mathrm{motor}}\cos{\left(\theta\right)}}\right)\right)
+**Volumen de la cámara de combustión:**
+
+![f7](https://github.com/JoseTor101/simulations_temp_and_crank_mech/blob/master/imgs/f7.jpg)
+
 O de manera más simplificada
 
-V=\frac{\pi}{4}d_{\mathrm{motor}}^2\left(r_{\mathrm{motor}}\left(1-\cos{\left(\theta\right)}\right)\cdots\cdot\left(1-\frac{r_{\mathrm{motor}}\sin{\left(\theta\right)}}{b_{\mathrm{motor}}+r_{\mathrm{motor}}\cos{\left(\theta\right)}}\right)\right)
+![f8](https://github.com/JoseTor101/simulations_temp_and_crank_mech/blob/master/imgs/f8.jpg)
 
 donde
-s=r_{\mathrm{motor}}\left(\sin{\left(\theta\right)}+\frac{b_{\mathrm{motor}}}{r_{\mathrm{motor}}}\sqrt{1-\left(\frac{e-r_{\mathrm{motor}}\cos{\left(\theta\right)}}{b_{\mathrm{motor}}}\right)^2}\right)
+![f9](https://github.com/JoseTor101/simulations_temp_and_crank_mech/blob/master/imgs/f9.jpg)
 
 y
-e=r_{\mathrm{motor}}\left(1-\cos{\left(\theta\right)}\right)
+![f10](https://github.com/JoseTor101/simulations_temp_and_crank_mech/blob/master/imgs/f10.jpg)
 
 
-**Presión del pistón**
-P=\frac{R\cdotT}{\mathrm{V}}
-	Torques en los ejes
-\mathrm{T_biela}=\mathrm{F}\cdotb_{motor}\sin{\left(\theta\right)}
-\mathrm{T_piston}=\mathrm{F}\cdot\left(b_{\mathrm{motor}}+r_{\mathrm{motor}}\right)\sin{\left(\theta\right)}
-\mathrm{T_ciguenal}=\mathrm{F}\cdotr_{\mathrm{motor}}\sin{\left(\theta\right)}
+**Presión del pistón:**
+
+![f11](https://github.com/JoseTor101/simulations_temp_and_crank_mech/blob/master/imgs/f11.jpg)
+
+**Torques en los ejes**
+
+![f12](https://github.com/JoseTor101/simulations_temp_and_crank_mech/blob/master/imgs/f12.jpg)
 
 
 **EJEMPLO**
 Para un diámetro de pistón de 0.5m y una longitud de biela de 2m:
 
 **Gráfica 1:** Posición pistón vs Angulo de la manivela:
-![Gráfica 1](img/1_pos_vs_angle.jpg)
+
+![Gráfica 1](https://github.com/JoseTor101/simulations_temp_and_crank_mech/blob/master/imgs/1_pos_vs_angle.jpg)
 
 **Gráfica 2:** Velocidad del pistón vs Angulo de la manivela
-![Gráfica 2](img/2_speed_vs_angle.jpg)
+
+![Gráfica 2](https://github.com/JoseTor101/simulations_temp_and_crank_mech/blob/master/imgs/2_speed_vs_angle.jpg)
 
 **Gráfica 3:** Aceleración Vs Ángulo de la manivela
-![Gráfica 3](img/3_acel_vs_angle.jpg)
+
+![Gráfica 3](https://github.com/JoseTor101/simulations_temp_and_crank_mech/blob/master/imgs/3_acel_vs_angle.jpg)
  
 **Gráfica 4:** Volumen de la cámara Vs Ángulo de la manivela
-![Gráfica 4](img/4_vol_vs_angle.jpg)
+
+![Gráfica 4](https://github.com/JoseTor101/simulations_temp_and_crank_mech/blob/master/imgs/4_vol_vs_angle.jpg)
 
 **Gráfica 5:** Presión de la cámara Vs Ángulo de la manivela
-![Gráfica 5](img/5_press_vs_angle.jpg)
+![Gráfica 5](https://github.com/JoseTor101/simulations_temp_and_crank_mech/blob/master/imgs/5_press_vs_angle.jpg)
 
 **Gráfica 6:** Torque en los ejes Vs Ángulo de la manivela
-![Gráfica 6](img/6_torq_vs_angle.jpg)
+![Gráfica 6](https://github.com/JoseTor101/simulations_temp_and_crank_mech/blob/master/imgs/6_torq_vs_angle.jpg)
 
 
 
